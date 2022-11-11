@@ -1,0 +1,28 @@
+inherit: prefix
+depends:
+- gnuradio
+config:
+  config:
+    makewidth: 2
+    # git cache causes recursive clone to fail for some reason. With only one prefix, there isn't much
+    # point in having it anyways.
+    git-cache: ''
+    # We install all dependencies with apt ourselves. If PyBombs attemps to install a missing dependency
+    # that should fail loudly so we notice it.
+    elevate_pre_args: 'false'
+    packagers:
+    - apt
+
+  packages:
+    gnuradio:
+      forcebuild: true
+      gitbranch: maint-3.7
+      # We install all we need with apt.
+      depends: []
+      vars:
+        config_opt: "-DENABLE_TESTING=off -DCMAKE_CXX_FLAGS=-D__STDC_LIMIT_MACROS -DENABLE_DOXYGEN=OFF -DENABLE_GR_AUDIO=OFF -DENABLE_GR_BLOCKS=ON -DENABLE_GR_DIGITAL=ON -DENABLE_GR_FEC=ON -DENABLE_GR_FFT=ON -DENABLE_GR_FILTER=ON -DENABLE_GR_QTGUI=OFF -DENABLE_GR_UHD=ON -DENABLE_GR_ZEROMQ=OFF -DENABLE_PYTHON=ON -DENABLE_VOLK=ON -DENABLE_GRC=ON -DENABLE_PERFORMANCE_COUNTERS=ON"
+
+  categories:
+    hardware:
+      # The config file that pybombs creates in the prefix sets this parameter to true.
+      forcebuild: false

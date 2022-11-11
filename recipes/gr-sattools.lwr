@@ -1,0 +1,9 @@
+category: common
+depends:
+- gnuradio
+description: GNU Radio decoder for AX100
+gitbranch: maint-3.7
+inherit: cmake
+source: git+https://github.com/mndza/gr-sattools
+vars:
+  config_opt: "-DENABLE_SATTOOLS_ZEROMQ=OFF"

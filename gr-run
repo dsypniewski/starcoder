@@ -1,0 +1,4 @@
+#!/bin/bash
+
+. $PREFIX_DIR/setup_env.sh
+"$@"

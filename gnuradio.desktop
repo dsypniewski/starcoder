@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GNURadio Companion
+Comment=Open GNURadio Companion
+Icon=
+Exec=/usr/local/bin/gr-run pybombs run gnuradio-companion
+Terminal=false
+Type=Application

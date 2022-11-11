@@ -1,0 +1,9 @@
+category: common
+depends:
+- gnuradio
+- libfec
+- pyconstruct
+description: GNU Radio decoders for several Amateur satellites
+gitbranch: maint-3.7
+inherit: cmake
+source: git+https://github.com/daniestevez/gr-satellites
